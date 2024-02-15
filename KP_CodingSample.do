@@ -13,7 +13,7 @@
 	
 	global input_data = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\input\"
 	global output_data = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\output\"
-	global results = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\results\"
+	global results = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\results\"
 	global gis_files = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\gis\"
 
 	
