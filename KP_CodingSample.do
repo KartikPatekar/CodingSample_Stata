@@ -13,7 +13,9 @@
 	
 	global input_data = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\input\"
 	global output_data = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\output\"
-	global results = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\results\"
+	global results = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\results\"
+	global gis_files = "C:\Users\kartik\Dropbox\WritingSample\CodingSample_Stata\Data\gis\"
+
 	
 	* Input files
 	global RTE_school_list = "$input_data\2022_RTE_Schools_list.dta"
@@ -399,7 +401,17 @@
 
 
 
+********************
+* Plot village level dSVI_max
+********************
 
+	use "$village_feepred_data", replace
 	
+	merge 1:1 shrid2 using "$gis_files\filt_village_db.dta", keep(3) nogen keepusing(_ID)
 	
-	
+	grmap dSVI_max using "$gis_files\filt_village_cd.dta", id(_ID) fcolor(BuYlRd) ocolor(white white white white white) clnumber(5) /// 
+		polygon(data("$gis_files\cg_map.dta") osize(vthin)) legend(bplace(seast)) title("CG villages differential SVI between ""best private and public school")
+		
+	graph export "$results\dSVI_map.png", replace 
+		
+
